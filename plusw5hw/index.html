@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/5d1df49d89.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="border">
+        <div class="row">
+          <div class="col-5">
+            <div class="card crd-spacers">
+              <div>
+                <span class="card-body degrees-main" id="current-degrees">
+                  78°</span
+                ><a class="hi-low" id="farenheit">F </a
+                ><span class="hi-low">|</span
+                ><a class="hi-low" id="celsius"> C</a>
+                <div class="hi-low">78°/53°</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-7">
+            <div class="row">
+              <div class="col-5">
+                <i class="fa-solid fa-cloud-sun emoji-main"></i>
+              </div>
+              <div class="col-7 date">
+                <span id="current-date"> 8/17/22 </span><br /><span
+                  id="current-day"
+                  >Wednesday</span
+                ><br /><span id="current-time">1:27pm</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5 weather" id="weather-state">Sunny</div>
+              <div class="col-7 weather">
+                <form id="search-city">
+                  <input
+                    type="text"
+                    placeholder="Enter city here"
+                    class="text-box"
+                    id="search-text-input"
+                  />
+                  <input type="submit" value="Search" class="btn-search" />
+                  <input
+                    type="submit"
+                    value="Current"
+                    class="btn-search"
+                    id="current-button"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card crd-spacers">
+              <div class="card-body location" id="current-location">
+                Bristol, Wisconsin, USA
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                Thursday
+                <div class="emoji-weather"><i class="fa-solid fa-sun"></i></div>
+                <div class="degrees-day">82°/62°</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                Friday
+                <div class="emoji-weather">
+                  <i class="fa-solid fa-cloud"></i>
+                </div>
+                <div class="degrees-day">86°/62°</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                Saturday
+                <div class="emoji-weather">
+                  <i class="fa-solid fa-cloud-showers-heavy"></i>
+                </div>
+                <div class="degrees-day">78°/62°</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                Sunday
+                <div class="emoji-weather">
+                  <i class="fa-solid fa-cloud-showers-heavy"></i>
+                </div>
+                <div class="degrees-day">77°/62°</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                Monday
+                <div class="emoji-weather">
+                  <i class="fa-solid fa-cloud"></i>
+                </div>
+                <div class="degrees-day">78°/60°</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                Tuesday
+                <div class="emoji-weather"><i class="fa-solid fa-sun"></i></div>
+                <div class="degrees-day">81°/63°</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="src/script.js"></script>
+  </body>
+</html>

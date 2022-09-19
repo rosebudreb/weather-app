@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=DynaPuff&display=swap");
+
+body {
+  margin: 50px 0;
+  font-family: aboreto, cursive;
+  text-align: center;
+  max-width: 543px;
+  display: block;
+  margin: 20px auto;
+}
+.border {
+  border: 1px solid grey;
+  padding: 20px;
+}
+.btn-search {
+  margin: 2px 0 0 0;
+  position: relative;
+  left: -11px;
+  font-size: 10px;
+}
+.card-body {
+  padding: 0;
+}
+.crd-spacers {
+  margin: 15px;
+}
+
+.col-2 {
+  padding: 5px;
+  font-size: 12px;
+}
+.date {
+  font-size: 23px;
+}
+
+.degrees-main {
+  font-size: 75px;
+}
+.emoji-main {
+  font-size: 100px;
+  position: relative;
+  left: -20px;
+  top: 20px;
+}
+.emoji-weather {
+  font-size: 50px;
+
+  padding: 20px 0 20px 0;
+}
+.hi-low {
+  font-size: 15px;
+  text-decoration: none;
+}
+.location {
+  font-size: 25px;
+}
+.temp-link {
+  text-decoration: none;
+}
+.text-box {
+  width: 155px;
+}
+.weather {
+  margin: 30px 0 0 0;
+}
