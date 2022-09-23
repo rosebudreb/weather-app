@@ -64,5 +64,13 @@ function locationEvent(event) {
   navigator.geolocation.getCurrentPosition(currentLocation);
 }
 
+function defaultCity(city) {
+  let apiKey = "57b2c40fdae71a6ba41d72685e3226e2";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showTemp);
+}
+
 let currentCity = document.querySelector("#current-button");
 currentCity.addEventListener("click", locationEvent);
+
+defaultCity("Chicago");
