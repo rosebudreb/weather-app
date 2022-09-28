@@ -37,6 +37,11 @@ function search(event) {
     temperatureElement.innerHTML = `${tempRounded}°`;
     let weatherElement = document.querySelector("#weather-state");
     weatherElement.innerHTML = response.data.weather[0].description;
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
   }
   axios.get(apiUrl).then(temperature);
 }
@@ -49,6 +54,11 @@ function showTemp(response) {
   temperatureElement.innerHTML = `${tempRounded}°`;
   let cityElement = document.querySelector("#current-location");
   cityElement.innerHTML = response.data.name;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function currentLocation(position) {
