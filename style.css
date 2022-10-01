@@ -8,6 +8,16 @@ body {
   display: block;
   margin: 20px auto;
 }
+a:hover {
+  cursor: pointer;
+}
+.active {
+  color: black;
+}
+.active:hover {
+  color: black;
+  cursor: default;
+}
 .border {
   border: 1px solid grey;
   padding: 20px;
