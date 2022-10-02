@@ -33,16 +33,16 @@ function searchByCityName(city_name) {
   axios.get(apiUrl).then(setTempuratureHTML);
 }
 
-function setDegreesHTML(degrees, classToDisable, classToEnable) {
+function setDegreesHTML(degrees, linkToDisable, linkToEnable) {
   let tempRounded = Math.round(degrees);
   let temperatureElement = document.querySelector("#current-degrees");
   temperatureElement.innerHTML = `${tempRounded}°`;
-  // classToDisable.disable
-  // classToEnable.enable
+  linkToEnable.classList.remove("active");
+  linkToDisable.classList.add("active");
 }
 //Create html update function
 function setTempuratureHTML(response) {
-  setDegreesHTML(response.data.main.temp, "#farenheit", "#celius");
+  setDegreesHTML(response.data.main.temp, farenheitLink, celsiusLink);
   let weatherElement = document.querySelector("#weather-state");
   weatherElement.innerHTML = response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
@@ -56,20 +56,20 @@ function setTempuratureHTML(response) {
 //Create conversion function
 function displayCelsiusTemp(event) {
   event.preventDefault();
-  farenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
   let currentDegrees = document.querySelector("#current-degrees").innerHTML;
   let celsiusTemp = ((parseInt(currentDegrees) - 32) * 5) / 9;
-  setDegreesHTML(celsiusTemp, "#celsius", "#farenheit");
+  if (!celsiusLink.classList.contains("active")) {
+    setDegreesHTML(celsiusTemp, celsiusLink, farenheitLink);
+  }
 }
 
 function displayFarenheitTemp(event) {
   event.preventDefault();
-  celsiusLink.classList.remove("active");
-  farenheitLink.classList.add("active");
   let currentDegrees = document.querySelector("#current-degrees").innerHTML;
   let farenheitTemp = (parseInt(currentDegrees) * 9) / 5 + 32;
-  setDegreesHTML(farenheitTemp, "#farenheit", "#celsius");
+  if (!farenheitLink.classList.contains("active")) {
+    setDegreesHTML(farenheitTemp, farenheitLink, celsiusLink);
+  }
 }
 //Create conversion page update function
 function searchByLocation(position) {
