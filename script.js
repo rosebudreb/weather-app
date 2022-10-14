@@ -50,7 +50,7 @@ function setDegreesHTML(degrees) {
 function setTempuratureHTML(response) {
   // get lat and lon from response
   let apiKey = "17ad6e67aa629189f73b053634668b20";
-  let apiUrl = `http://api.openweathermap.org/data/2.5/onecall?cnt=6&lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&cnt=5&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?cnt=6&lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&cnt=5&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(setForecastHTML);
   // make new API call
   // Call setForecastHTML with API result
@@ -64,7 +64,7 @@ function setTempuratureHTML(response) {
 
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
 function setForecastHTML(response) {
@@ -79,7 +79,7 @@ function setForecastHTML(response) {
             <div class="card-body">
               ${getDayOfWeek(new Date(day.dt * 1000))}
               <div class="emoji-weather">
-                <img class="" src="http://openweathermap.org/img/wn/${
+                <img class="" src="https://openweathermap.org/img/wn/${
                   day.weather[0].icon
                 }@2x.png" />
               </div>
