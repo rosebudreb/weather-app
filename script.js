@@ -41,12 +41,10 @@ function searchByCityName(city_name) {
   axios.get(apiUrl).then(setTempuratureHTML);
 }
 
-function setDegreesHTML(degrees, linkToDisable, linkToEnable) {
+function setDegreesHTML(degrees) {
   let tempRounded = Math.round(degrees);
   let temperatureElement = document.querySelector("#current-degrees");
   temperatureElement.innerHTML = `${tempRounded}°`;
-  linkToEnable.classList.remove("active");
-  linkToDisable.classList.add("active");
 }
 //Create html update function
 function setTempuratureHTML(response) {
@@ -57,7 +55,7 @@ function setTempuratureHTML(response) {
   // make new API call
   // Call setForecastHTML with API result
 
-  setDegreesHTML(response.data.main.temp, farenheitLink, celsiusLink);
+  setDegreesHTML(response.data.main.temp);
   let weatherElement = document.querySelector("#weather-state");
   weatherElement.innerHTML = response.data.weather[0].description;
   let iconElement = document.querySelector("#icon");
@@ -96,24 +94,7 @@ function setForecastHTML(response) {
   }
   forecastWrapper.innerHTML = forecastHTML;
 }
-//Create conversion function
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  let currentDegrees = document.querySelector("#current-degrees").innerHTML;
-  let celsiusTemp = ((parseInt(currentDegrees) - 32) * 5) / 9;
-  if (!celsiusLink.classList.contains("active")) {
-    setDegreesHTML(celsiusTemp, celsiusLink, farenheitLink);
-  }
-}
 
-function displayFarenheitTemp(event) {
-  event.preventDefault();
-  let currentDegrees = document.querySelector("#current-degrees").innerHTML;
-  let farenheitTemp = (parseInt(currentDegrees) * 9) / 5 + 32;
-  if (!farenheitLink.classList.contains("active")) {
-    setDegreesHTML(farenheitTemp, farenheitLink, celsiusLink);
-  }
-}
 //Create conversion page update function
 function searchByLocation(position) {
   let lat = position.coords.latitude;
@@ -133,12 +114,6 @@ currentCity.addEventListener("click", getLocation);
 // Create Button Listener
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", searchByForm);
-//create Celsius Listener
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
-//create Farenheit Listener
-let farenheitLink = document.querySelector("#farenheit");
-farenheitLink.addEventListener("click", displayFarenheitTemp);
 
 let farenheitTemperature = null;
 // Initializers
